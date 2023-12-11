@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="primary display-4">Songs</h1>
+<div class="jumbotron bg-primary py-3">
+  <h3 class= "custom-list-item">Title: </h3>
+  <h1 class="display-4 font-italic font-weight-normal text-white">{{ song.title }}!</h1>
+  <hr class="my-4">
+  <h3 class= "custom-list-item">Artist: </h3>
+  <p class="lead display-4 font-italic  font-weight-normal text-white">{{ song.artist }}</p>
+</div>
+<h1 class= "display-5">Playlists that song "<i><b>{{song.title}}</b></i>" belongs to.</h1>
+<ul>
+  {% for playlist in playlists %}
+    <li ><a class="custom-list-item" href="/playlists/{{playlist.id}}" >{{ playlist.name }}</a></li>
+  {% else %} 
+    <li class="custom-list-item text-primary">None</li>
+  {% endfor %}
+</ul>
+{% endblock %}

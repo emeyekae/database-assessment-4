@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="display-4">Add a New Playlist</h1>
+<br>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <p class="custom-list-item text-primary" >
+        {% if 'Name' in field.label.text %}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{field.label}}:
+            {{field}}
+        {% else %}
+            {{field.label}}:
+            {{field}}
+        {% endif %}
+        {% for err in field.errors %}
+        {{err}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="primary display-4">All Playlists</h1>
+<ul>
+{% for playlist in playlists %}
+  <li>
+     <a class= "custom-list-item" href="/playlists/{{ playlist.id }}">{{ playlist.name }}</a>
+  </li>
+{% endfor %}
+</ul>
+<p><a class="btn btn-primary" href="/playlists/add">Add a playlist</a></p>
+{% endblock %}

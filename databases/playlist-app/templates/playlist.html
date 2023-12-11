@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="primary display-4">Playlists</h1>
+<div class="jumbotron bg-primary py-3">
+  <h3 class= "custom-list-item">Name: </h3>
+  <h1 class="display-4 font-italic font-weight-normal text-white">{{ playlist.name }}</h1>
+  <hr class="my-4">
+  <h3 class= "custom-list-item">Description: </h3>
+  <p class="lead display-4 font-italic  font-weight-normal text-white">{{ playlist.description }}</p>
+</div>
+<h1 class= "display-5">Songs that belong to playlist "<i><b>{{ playlist.name }}</b></i>".</h1>
+<ul>
+  {% for song in songs %}
+    <li><a class= "custom-list-item" href="/songs/{{song.id}}">{{ song.title }}</a></li>
+  {% else %}
+    <li class= "custom-list-item text-primary">None</li>
+  {% endfor %}
+</ul>
+<p>
+  <a class="btn btn-primary" href="/playlists/{{ playlist.id }}/add-song">
+    Add Song To Playlist
+  </a>
+</p>
+{% endblock %}
