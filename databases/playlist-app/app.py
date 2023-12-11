@@ -129,3 +129,6 @@ def add_song_to_playlist(playlist_id):
                              form=form)
 
 
+//suggestions
+//1. The variable songlist is used in the add_song route, but the variable name suggests a playlist rather than a song
+//2. Explicitly define HTTP methods for your routes. For example, in the add_playlist route, you may want to specify methods=['GET', 'POST'] in the route decorator.
